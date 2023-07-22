@@ -5,6 +5,7 @@ const server = http.createServer(app)
 const {Server} = require('socket.io')
 const path = require('path')
 const io = new Server(server)
+const PORT = process.env.PORT || 4999
 
 app.set('view engine','hbs')
 app.use(express.static(path.join(__dirname,'public')))
@@ -33,6 +34,6 @@ io.on('connection', (socket) => {
     })
 })
 
-server.listen(4999, () => {
-    console.log("Server start" ,4999)
+server.listen(PORT, () => {
+    console.log("Server start")
 })
